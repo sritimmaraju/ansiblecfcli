@@ -4,8 +4,8 @@ LABEL name="Sri Timmaraju"
 RUN apt-get update && \
     apt-get upgrade -y && \
     apt-get install wget -y && \
-    wget -q -O - https://packages.cloudfoundry.org/debian/cli.cloudfoundry.org.key | sudo apt-key add - && \
-    echo "deb https://packages.cloudfoundry.org/debian stable main" | sudo tee /etc/apt/sources.list.d/cloudfoundry-cli.list && \
+    wget -q -O - https://packages.cloudfoundry.org/debian/cli.cloudfoundry.org.key | apt-key add - && \
+    echo "deb https://packages.cloudfoundry.org/debian stable main" | tee /etc/apt/sources.list.d/cloudfoundry-cli.list && \
     apt-get install software-properties-common -y && \
     apt-add-repository ppa:ansible/ansible -y && \
     apt-get install ansible -y && \
