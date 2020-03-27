@@ -1,9 +1,15 @@
 FROM ubuntu
 LABEL name="Sri Timmaraju"
 
-RUN pip install --upgrade pip && \
-    apk update && apk add curl && \
-    apk add git && \
-    pip install gitdb2 && \
-    pip install cloudfoundry-client && \
-    pip install ansible -y
+RUN wget -q -O - https://packages.cloudfoundry.org/debian/cli.cloudfoundry.org.key | sudo apt-key add -
+    echo "deb https://packages.cloudfoundry.org/debian stable main" | sudo tee /etc/apt/sources.list.d/cloudfoundry-cli.list
+    apt-get update && \
+    apt-get upgrade -y && \
+    apt-get install software-properties-common -y && \
+    apt-add-repository ppa:ansible/ansible -y && \
+    apt-get install ansible -y && \
+    apt-get install git -y && \
+    apt-get install curl -y && \
+    apt-get install vim -y && \
+    apt-get install python-jmespath -y && \
+    apt-get install cf-cli
