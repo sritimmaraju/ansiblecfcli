@@ -14,4 +14,5 @@ RUN apt-get update && \
     apt-get install curl -y && \
     apt-get install vim -y && \
     apt-get install python-jmespath -y && \
-    apt-get install cf-cli -y
+    apt-get install cf-cli -y && \
+    cf install-plugin -r CF-Community app-autoscaler-plugin
