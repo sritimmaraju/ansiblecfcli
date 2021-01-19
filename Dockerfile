@@ -2,7 +2,7 @@ FROM ubuntu
 LABEL name="Sri Timmaraju"
 
 ADD autoscaler-for-pcf-cliplugin-linux64-binary-2.0.233 cf_plugins/
-ADD blue-green-deploy.linux64 cf_plugins/
+ADD blue-green-deploy.linux64 cf_plugin/
 
 RUN apt-get update && \
     apt-get upgrade -y && \
@@ -14,4 +14,4 @@ RUN apt-get update && \
     apt-get install git -y && \
     apt-get install cf-cli -y && \
     cf install-plugin cf_plugins/autoscaler-for-pcf-cliplugin-linux64-binary-2.0.233 -f \
-    cf install-plugin cf_plugins/blue-green-deploy.linux64 -f
+    cf install-plugin cf_plugin/blue-green-deploy.linux64 -f
